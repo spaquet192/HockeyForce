@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="GLOBAL">
+    <aura:attribute name="hoursArray" type="String[]"/>
+    <aura:attribute name="day" type="String" default=""/>
+    
+    <aura:handler event="c:CalendarDateChange" action="{!c.handleDateChange}"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <div class="slds-grid slds-wrap slds-grid--pull-padded">
+        <div class="slds-p-horizontal--small slds-size--2-of-2 slds-medium-size--6-of-6 slds-large-size--12-of-12 slds-box slds-box--medium slds-theme--default slds-text-align--center">{!v.day}</div>
+        <aura:iteration var="hour" items="{!v.hoursArray}">
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-medium-size--1-of-6 slds-large-size--4-of-12 slds-box slds-box--medium slds-theme--default slds-text-align--center">{!hour}</div>
+            <div class="slds-p-horizontal--small slds-size--1-of-2 slds-medium-size--5-of-6 slds-large-size--8-of-12 slds-box slds-box--medium slds-theme--shade" onclick="{!c.handleCreateEvent}">                           </div> 
+        </aura:iteration>
+    </div>
+</aura:component>
