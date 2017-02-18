@@ -1,0 +1,33 @@
+<aura:component >
+    <lightning:tabset >
+            <lightning:tab label="Roster">
+                <c:DataList data="[
+                                  {value:'Gabriel Paquet',key: 'Name'},
+                                  {value:'Defensemen',key:'Position'},
+                                  {value:'40',key:'Number'},
+                                  {value:'Present',key:'Status'}
+                                  ]">
+                </c:DataList>
+            </lightning:tab>
+            <lightning:tab label="Games">
+                <c:DataList data="[
+                                  {value:'Santa Rosa Flyers',key: 'Home team'},
+                                  {value:'Santa Clara Blackhawks',key:'Visitor team'},
+                                  {value:'1/15/2017',key:'Date'}
+                                  ]">
+                </c:DataList>
+            </lightning:tab>
+            <lightning:tab label="Calendar">
+                <div class="c-container">
+                    <lightning:layout horizontalAlign="space">
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <c:DailyAgenda />
+                        </lightning:layoutItem>
+                        <lightning:layoutItem flexibility="auto" padding="around-small">
+                            <c:CalendarComponent />
+                        </lightning:layoutItem>
+                    </lightning:layout>
+                </div>               
+            </lightning:tab>        
+    </lightning:tabset>
+</aura:component>

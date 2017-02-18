@@ -1,0 +1,37 @@
+<aura:component extends="c:UserInfoService">
+    
+    <aura:attribute name="title" type="String" default=""/>
+    <aura:attribute name="icon" type="String" default="action:description"/>
+    <aura:attribute name="footer" type="String" default="(C) 2016"/>
+    <aura:attribute name="class" type="String" default="slds-text-align--center"/>
+    
+    <lightning:card title="{!v.title}"
+                    iconName="">
+        <aura:set attribute="title">
+            <lightning:buttonIcon iconName="utility:justify_text" 
+                          variant="bare" 
+                          size="large" 
+                          alternativeText="Menu"
+                          onclick="{!c.handleClick}"/>
+            <lightning:badge label="{#v.title}"/>
+        </aura:set>
+        <aura:set attribute="actions">
+            <a href="{!'/' + v.userId}">{!v.userName}</a>
+        </aura:set>
+    </lightning:card> 
+    
+    <div id="body">
+        <p class="{!v.class}">
+            {!v.body}
+        </p>
+    </div>
+    
+    <lightning:card title="">
+        <aura:set attribute="footer">
+        	<p class="slds-text-align--right">
+            	{#v.footer}
+            </p>
+        </aura:set>
+    </lightning:card>
+    
+</aura:component>
